@@ -32,11 +32,11 @@ namespace W5_Project_Team7
                         {
                             try
                             {
-                                Console.WriteLine($"Company: {item.company.name}, For who: {item.meantFor[0]}");
+                                Console.WriteLine($"Company: {item.company.name}, For who: {item.descriptions}");
                             }
                             catch (Exception e)
                             {
-                                Console.WriteLine($"Company: {item.company}, Meant for not found");
+                                Console.WriteLine($"Company: {item.company.name}, For who: {item.descriptions}");
                             }
                         }
 
