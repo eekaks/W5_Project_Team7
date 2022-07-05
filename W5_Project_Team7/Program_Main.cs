@@ -32,6 +32,20 @@ namespace Apitestailua
                         {
                             try
                             {
+                                Console.WriteLine($"Company: {item.company.name}, For who: {item.meantFor[0]}");
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine($"Company: {item.company}, Meant for not found");
+                            }
+                        }
+
+                        /*
+
+                        foreach (var item in results.rows)
+                        {
+                            try
+                            {
                                 Console.WriteLine("Company name: " + item.company.name + "Description: " + item.descriptions.additionalprop2.name);
                             }
                             catch (Exception e)
@@ -39,6 +53,7 @@ namespace Apitestailua
                                 Console.WriteLine("Company name: " + item.company.name + "Description not found");
                             }
                         }
+                        */
                     }
                 }
             }
