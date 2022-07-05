@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text.Json;
-using System.Threading.Tasks;
 
-namespace Apitestailua
+namespace W5_Project_Team7
+
 {
     public static class APIHelper
     {
@@ -17,4 +15,5 @@ namespace Apitestailua
             return client;
         }
     }
+
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
@@ -12,3 +13,19 @@ C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache
+=======
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.dev.json
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.AssemblyReference.cache
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfoInputs.cache
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfo.cs
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.CoreCompileInputs.cache
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache
+>>>>>>> eetu
