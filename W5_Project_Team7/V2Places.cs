@@ -28,7 +28,7 @@ namespace W5_Project_Team7
         public Description description { get; set; }
         public Tag[] tags { get; set; }
         public string[] extra_searchwords { get; set; }
-        public string openingHoursUrl { get; set; }
+        public string opening_hours_url { get; set; }
     }
 
     public class Name
@@ -41,6 +41,10 @@ namespace W5_Project_Team7
 
     public class Sourcetype
     {
+        #nullable enable
+        public int? id { get; set; }
+        public string? name { get; set; }
+        #nullable disable
     }
 
     public class Location

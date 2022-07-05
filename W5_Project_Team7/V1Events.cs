@@ -21,14 +21,17 @@ namespace W5_Project_Team7
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }
-        public Eventdates eventDates { get; set; }
+        public Eventdates event_dates { get; set; }
     }
 
     public class Eventdates
     {
-        public DateTime startingDay { get; set; }
-        public DateTime endingDay { get; set; }
-        public Additionaldescription[] additionalDescription { get; set; }
+#nullable enable
+        public DateTime? starting_day { get; set; }
+        public DateTime? ending_day { get; set; }
+
+        public Additionaldescription[]? additionalDescription { get; set; }
+#nullable disable
     }
 
     public class Additionaldescription
