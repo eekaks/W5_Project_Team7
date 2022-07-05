@@ -10,7 +10,7 @@ namespace W5_Project_Team7
     {
         static async Task Main(string[] args)
         {
-            string url = "http://open-api.myhelsinki.fi/v1/events/";
+            string url = "https://open-api.myhelsinki.fi/v2/activities";
 
             try
             {
@@ -23,14 +23,12 @@ namespace W5_Project_Team7
                         string json = await response.Content.ReadAsStringAsync();
 
 
-                        V1Events results = JsonSerializer.Deserialize<V1Events>(json);
+                        //V2Activities results = JsonSerializer.Deserialize<V2Activities>(json);
 
-                        foreach (var item in results.data)
-                        {
-                            Console.WriteLine("ID: " + item.id + " Name: " + item.name.fi);
-                        }
+                        
 
-                        Console.WriteLine($"Found {results.meta.count} items.");
+
+                        //Console.WriteLine($"Found {results.count} items.");
                     }
                 }
             }
