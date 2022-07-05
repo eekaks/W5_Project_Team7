@@ -30,30 +30,15 @@ namespace W5_Project_Team7
 
                         foreach (var item in results.rows)
                         {
-                            try
+                            if (!(item.descriptions.en is null))
                             {
-                                Console.WriteLine($"Company: {item.company.name}, For who: {item.descriptions}");
+                                Console.WriteLine("Company name: " + item.company.name + "\nDescription: " + item.descriptions.en.name);
                             }
-                            catch (Exception e)
+                            else if (!(item.descriptions.fi is null))
                             {
-                                Console.WriteLine($"Company: {item.company.name}, For who: {item.descriptions}");
-                            }
-                        }
-
-                        /*
-
-                        foreach (var item in results.rows)
-                        {
-                            try
-                            {
-                                Console.WriteLine("Company name: " + item.company.name + "Description: " + item.descriptions.additionalprop2.name);
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Company name: " + item.company.name + "Description not found");
+                                Console.WriteLine("Company name: " + item.company.name + "\nDescription: " + item.descriptions.fi.name);
                             }
                         }
-                        */
                     }
                 }
             }

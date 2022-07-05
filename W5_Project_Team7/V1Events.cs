@@ -13,7 +13,9 @@ namespace W5_Project_Team7
     {
         public string id { get; set; }
         public Name name { get; set; }
+        #nullable enable
         public Sourcetype? sourceType { get; set; }
+        #nullable disable
         public string infoUrl { get; set; }
         public DateTime modifiedAt { get; set; }
         public Location location { get; set; }
