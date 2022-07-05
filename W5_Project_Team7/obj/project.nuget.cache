@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "AkzT3ZourusVtDJB02/RHe4X0PJJTQeRG7V+6tFkzwlz3MNBkOMKuQ3SH2n0hUpseMpJi4K/WiLmd7g1TEnkTg==",
+  "dgSpecHash": "+jeyC2JIega4fs1mM/1KlUDYVCQTC6rIqdWYDyb859A3/4UdzKBAj5roJ+olRGUKj+Yll7kdcS1/5NlcccCv4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Maria T\\Source\\Repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
-=======
-  "dgSpecHash": "x1TiT2btRSBbQFUtXCNB0/oRRojOdxvVlrUo2XZNqPO9+Sw7oLnd9n/FMDvglivJ/PWhP7IQS+6LKUPHNDyAXw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
->>>>>>> main
+  "projectFilePath": "C:\\Users\\Maria T\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

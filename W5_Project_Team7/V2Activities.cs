@@ -31,6 +31,10 @@ namespace W5_Project_Team7
         public string durationType { get; set; }
     }
 
+    public class ActivityAddress
+    {
+    }
+
     public class Descriptions
     {
         public Additionalprop1? additionalprop1 { get; set; }
