@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace W5_Project_Team7
+
 {
     public static class APIHelper
     {
@@ -14,4 +15,5 @@ namespace W5_Project_Team7
             return client;
         }
     }
+
 }
