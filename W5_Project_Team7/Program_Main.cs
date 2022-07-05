@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
@@ -29,15 +30,11 @@ namespace W5_Project_Team7
                         //V2Activities results = JsonSerializer.Deserialize<V2Activities>(json);
                         V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
-                        //foreach (V1Event helsinkiEvent in FindEventByDate(events))
-                        //{
-                        //    Console.WriteLine(helsinkiEvent.name.fi);
-                        //}
-
-                        foreach (V1Event helsinkiEvent in events.data)
+                        foreach (V1Event helsinkiEvent in FindEventBySearchWordAndDate(events))
                         {
-                            Console.WriteLine(helsinkiEvent.event_dates.starting_day);
+                            Console.WriteLine(helsinkiEvent.name.fi);
                         }
+                        
 
                     }
                 }
@@ -61,19 +58,58 @@ namespace W5_Project_Team7
             }
             return foundEvents;
         }
+
+        public static List<V1Event> FindEventBySearchWordAndDate(V1Events events)
+        {
+            List<V1Event> foundEvents = FindEventByDate(events);
+            Console.WriteLine("Syötä hakusana etsiäksesi tapahtumia: ");
+            string searchInput = Console.ReadLine();
+
+            List<V1Event> foundSearchEvents = new List<V1Event>();
+
+            foreach (V1Event helsinkiEvent in foundEvents)
+            {
+                if (helsinkiEvent.name.fi.ToLower().Contains(searchInput.ToLower()))
+                {
+                    foundSearchEvents.Add(helsinkiEvent);
+                }
+                else if (helsinkiEvent.description.intro.ToLower().Contains(searchInput.ToLower()))
+                {
+                    foundSearchEvents.Add(helsinkiEvent);
+                }
+                else if (helsinkiEvent.description.body.ToLower().Contains(searchInput.ToLower()))
+                {
+                    foundSearchEvents.Add(helsinkiEvent);
+                }
+
+                foreach (Tag tag in helsinkiEvent.tags)
+                {
+                    if (tag.name.ToLower().Contains(searchInput.ToLower()))
+                    {
+                        foundSearchEvents.Add(helsinkiEvent);
+                    }
+                }
+            }
+
+            if (!foundSearchEvents.Any())
+            {
+                Console.WriteLine("Ei löytynyt tapahtumia!");
+            }
+            return foundSearchEvents;
+        }
         public static DateTime GetDateTime()
         {
             while (true)
             {
                 try
                 {
-                    Console.WriteLine("Please enter a date in the following format: 'YYYY/mm/dd'");
+                    Console.WriteLine("Syötä päivämäärä seuraavassa muodossa: 'YYYY/mm/dd'");
                     DateTime input = DateTime.Parse(Console.ReadLine());
                     return input;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Invalid input, try again.");
+                    Console.WriteLine("Virheellinen syöte, yritä uudestaan.");
                 }
             }
         }
