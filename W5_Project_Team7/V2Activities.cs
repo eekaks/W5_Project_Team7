@@ -19,7 +19,7 @@ namespace W5_Project_Team7
         public Company company { get; set; }
         public Open open { get; set; }
         public Medium[] media { get; set; }
-        public ActivityAddress address { get; set; }
+        public Address address { get; set; }
         public Companyaddress companyAddress { get; set; }
         public string[] tags { get; set; }
         public string siteUrl { get; set; }
