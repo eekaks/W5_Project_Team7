@@ -1,0 +1,13 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+<<<<<<< HEAD
+      "C:\\Users\\TiiaMeriranta\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\TiiaMeriranta\\.nuget\\packages"
+=======
+      "C:\\Users\\eetu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\eetu\\.nuget\\packages"
+>>>>>>> eetu
+    ]
+  }
+}
