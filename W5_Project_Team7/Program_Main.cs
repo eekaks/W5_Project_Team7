@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text.Json;
 
 
-namespace Apitestailua
+namespace W5_Project_Team7
 {
     class Program
     {
