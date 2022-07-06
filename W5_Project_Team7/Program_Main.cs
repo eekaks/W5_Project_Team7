@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
@@ -13,7 +14,9 @@ namespace W5_Project_Team7
     {
         static async Task Main(string[] args)
         {
-            string url = "http://open-api.myhelsinki.fi/v2/activities";
+            string url = "https://open-api.myhelsinki.fi/v1/events/";
+            //string url = "https://open-api.myhelsinki.fi/v2/activities";
+            //string url = "https://open-api.myhelsinki.fi/v2/places/";
 
             try
             {
@@ -25,41 +28,85 @@ namespace W5_Project_Team7
                     {
                         string json = await response.Content.ReadAsStringAsync();
 
+                        //V2Places places = JsonSerializer.Deserialize<V2Places>(json);
+                        //V2Activities results = JsonSerializer.Deserialize<V2Activities>(json);
+                        //V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
-                        V2Activities results = JsonSerializer.Deserialize<V2Activities>(json);
-
-                        foreach (var item in results.rows)
-                        {
-                            try
-                            {
-                                Console.WriteLine($"Company: {item.company.name}, For who: {item.meantFor[0]}");
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine($"Company: {item.company}, Meant for not found");
-                            }
-                        }
-
-                        /*
-
-                        foreach (var item in results.rows)
-                        {
-                            try
-                            {
-                                Console.WriteLine("Company name: " + item.company.name + "Description: " + item.descriptions.additionalprop2.name);
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Company name: " + item.company.name + "Description not found");
-                            }
-                        }
-                        */
                     }
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+            }
+        }
+        public static List<V1Event> FindEventByDate(V1Events events)
+        {
+            List<V1Event> foundEvents = new List<V1Event>();
+            DateTime date = GetDateTime();
+
+            foreach (V1Event helsinkiEvent in events.data)
+            {
+                if (date >= helsinkiEvent.event_dates.starting_day && date <= helsinkiEvent.event_dates.ending_day)
+                {
+                    foundEvents.Add(helsinkiEvent);
+                }
+            }
+            return foundEvents;
+        }
+
+        public static List<V1Event> FindEventBySearchWordAndDate(V1Events events)
+        {
+            List<V1Event> foundEvents = FindEventByDate(events);
+            Console.WriteLine("Syötä hakusana etsiäksesi tapahtumia: ");
+            string searchInput = Console.ReadLine();
+
+            List<V1Event> foundSearchEvents = new List<V1Event>();
+
+            foreach (V1Event helsinkiEvent in foundEvents)
+            {
+                if (helsinkiEvent.name.fi.ToLower().Contains(searchInput.ToLower()))
+                {
+                    foundSearchEvents.Add(helsinkiEvent);
+                }
+                else if (helsinkiEvent.description.intro.ToLower().Contains(searchInput.ToLower()))
+                {
+                    foundSearchEvents.Add(helsinkiEvent);
+                }
+                else if (helsinkiEvent.description.body.ToLower().Contains(searchInput.ToLower()))
+                {
+                    foundSearchEvents.Add(helsinkiEvent);
+                }
+
+                foreach (Tag tag in helsinkiEvent.tags)
+                {
+                    if (tag.name.ToLower().Contains(searchInput.ToLower()))
+                    {
+                        foundSearchEvents.Add(helsinkiEvent);
+                    }
+                }
+            }
+
+            if (!foundSearchEvents.Any())
+            {
+                Console.WriteLine("Ei löytynyt tapahtumia!");
+            }
+            return foundSearchEvents;
+        }
+        public static DateTime GetDateTime()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Syötä päivämäärä seuraavassa muodossa: 'YYYY/mm/dd'");
+                    DateTime input = DateTime.Parse(Console.ReadLine());
+                    return input;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Virheellinen syöte, yritä uudestaan.");
+                }
             }
         }
     }
