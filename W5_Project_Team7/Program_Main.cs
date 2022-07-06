@@ -132,9 +132,66 @@ namespace W5_Project_Team7
             await EventDateRange();
         }
 
-        static async Task EventTypeSearch()
+        static async Task EventTypeSearch(int eventtype, DateTime endDate)
         {
+            string url = "http://open-api.myhelsinki.fi/v1/events/";
 
+            try
+            {
+                using (var client = APIHelper.GetHttpClient(url))
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        string json = await response.Content.ReadAsStringAsync();
+                        V1Events events = JsonSerializer.Deserialize<V1Events>(json);
+
+                        switch (eventtype)
+                        {
+                            case 1:
+                                List<V1Event> concerts = new List<V1Event>();
+                                var foundConcerts = events.data.Where(e => e.event_dates.ending_day != null).Where(e => endDate >= DateTime.Parse(e.event_dates.ending_day) 
+                                && e.tags.Select(e => e.name).Contains("concerts"));
+                                concerts.AddRange(foundConcerts);
+                                
+                                for (int i = 0; i < concerts.Count; i++)
+                                    {
+                                      Console.WriteLine($"{i}: {concerts[i]}");
+                                    }
+                                    
+
+                                break;
+
+                            case 2:
+                                //teatteri
+
+                                break;
+                            case 3:
+                                //näyttely
+                                break;
+                            case 4:
+                                //urheilu
+                                break;
+                            
+
+                        }
+
+                        //tags.id
+                        //games = 285
+                        //concerts = 103
+                        //sports = 112
+                        //theatre = 226
+                        // exhibitions 225
+
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
         static async Task EventDateRange()
@@ -177,18 +234,35 @@ namespace W5_Project_Team7
                         DateTime endDate = DateTime.Parse(Console.ReadLine());
 
                         List<V1Event> FoundEvents = new List<V1Event>();
-                        var eventsearch = events.data.Where(e => startDate >= DateTime.Parse(e.event_dates.starting_day) && endDate <= DateTime.Parse(e.event_dates.ending_day)).ToList();
-                        FoundEvents.AddRange(eventsearch);
 
-                        for (int i = 0; i < FoundEvents.Count; i++)
+                        Console.WriteLine("Would you like to search events through a category or see all ongoing events during your stay?"
+                            + "\nA- You want to search specific categories. B- You want to see all events.");
+                        string answerTwo = Console.ReadLine().ToLower();
+
+                        if (answerTwo is "a")
                         {
-                            Console.WriteLine($"{i}: {FoundEvents[i]}");
+                            Console.WriteLine("What kind of event would you like attend? The categories available are:\n1. Concerts\n2. Theater\n3. (Art) Exhibitions\n4. Sporting events");
+                            int eventType = Convert.ToInt32(Console.ReadLine());
+                            await EventTypeSearch(eventType, endDate);
                         }
 
-                        Console.WriteLine("What event would you like to learn about more? Enter number: ");
-                        int choice = int.Parse(Console.ReadLine());
-                        Console.WriteLine(FoundEvents[choice]);
+                        else if (answerTwo is "b")
+                        {
+                            var eventsearch = events.data.Where(e => e.event_dates.ending_day != null).Where(e => startDate >= DateTime.Parse(e.event_dates.starting_day) && endDate <= DateTime.Parse(e.event_dates.ending_day)).ToList();
+                            FoundEvents.AddRange(eventsearch);
 
+                            for (int i = 0; i < FoundEvents.Count; i++)
+                            {
+                                Console.WriteLine($"{i}: {FoundEvents[i]}");
+                            }
+
+                            Console.WriteLine("What event would you like to learn about more? Enter number: ");
+                            int choice = int.Parse(Console.ReadLine());
+                            Console.WriteLine(FoundEvents[choice]);
+                        }
+
+                        else
+                        { Console.WriteLine("Please write A or B."); }
                     }
                 }
             }
