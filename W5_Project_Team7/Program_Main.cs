@@ -75,8 +75,8 @@ namespace W5_Project_Team7
 
 
             //string url = "https://open-api.myhelsinki.fi/v1/events/";
-            string url = "https://open-api.myhelsinki.fi/v2/activities";
-            //string url = "https://open-api.myhelsinki.fi/v2/places/";
+            //string url = "https://open-api.myhelsinki.fi/v2/activities";
+            string url = "https://open-api.myhelsinki.fi/v2/places/";
 
             try
             {
@@ -88,13 +88,16 @@ namespace W5_Project_Team7
                     {
                         string json = await response.Content.ReadAsStringAsync();
 
-                        //V2Places places = JsonSerializer.Deserialize<V2Places>(json);
-                        V2Activities activities = JsonSerializer.Deserialize<V2Activities>(json);
+                        V2Places places = JsonSerializer.Deserialize<V2Places>(json);
+                        //V2Activities activities = JsonSerializer.Deserialize<V2Activities>(json);
                         //V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < places.data.Count(); i++)
                         {
-                            Console.WriteLine(activities.rows[i]);
+                            if (CheckArea(places.data[i]))
+                            {
+                                Console.WriteLine(places.data[i]);
+                            }
                         }
                         
 
@@ -174,6 +177,16 @@ namespace W5_Project_Team7
                     Console.WriteLine("Virheellinen syöte, yritä uudestaan.");
                 }
             }
+        }
+
+        public static bool CheckArea(V2Place helsinkiPlace)
+        {
+            string[] neighbourhoods = new[]
+            {
+                "Kluuvi", "Kamppi", "Kruununhaka", "Punavuori", "Ullanlinna", "Kallio", "Vallila", "Eira",
+                "Kaivopuisto", "Etu - Töölö", "Sörnäinen"
+            };
+            return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
         }
     }
 }
