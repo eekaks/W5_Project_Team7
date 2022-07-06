@@ -13,22 +13,45 @@ namespace W5_Project_Team7
     {
         public string id { get; set; }
         public Name name { get; set; }
-        #nullable enable
         public Sourcetype? sourceType { get; set; }
-        #nullable disable
         public string info_url { get; set; }
         public DateTime modified_at { get; set; }
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }
         public Eventdates event_dates { get; set; }
+        public override string ToString()
+        {
+            string eventName = name.en is null ? name.fi : name.en;
+            string informationUrl = info_url is null ? "" : info_url;
+            string startingDay = event_dates.starting_day is null
+                ? "Starting date not specified."
+                : DateTime.Parse(event_dates.starting_day).ToShortDateString() + " " + DateTime.Parse(event_dates.starting_day).TimeOfDay;
+            string endingDay = event_dates.ending_day is null
+                ? "Ending date not specified."
+                : DateTime.Parse(event_dates.ending_day).ToShortDateString() + " " + DateTime.Parse(event_dates.ending_day).TimeOfDay;
+
+            return String.Format("{0}\n" +
+                                 "{1}\n" +
+                                 "{2}\n" +
+                                 "{3}\n" +
+                                 "{4}\n" +
+                                 "\n{5}\n" +
+                                 "\n{6}\n" +
+                                 "\nEvent starts: {7}\n" +
+                                 "Event ends: {8}\n", eventName, informationUrl, location.address.street_address, location.address.postal_code,
+                location.address.locality, description.intro, description.body, startingDay, endingDay);
+        }
     }
 
     public class Eventdates
     {
-        public DateTime? starting_day { get; set; }
-        public DateTime? ending_day { get; set; }
+        public string? starting_day { get; set; }
+
+        public string? ending_day { get; set; }
+
         public Additionaldescription[]? additionalDescription { get; set; }
+
     }
 
     public class Additionaldescription
