@@ -75,8 +75,8 @@ namespace W5_Project_Team7
 
 
             //string url = "https://open-api.myhelsinki.fi/v1/events/";
-            //string url = "https://open-api.myhelsinki.fi/v2/activities";
-            string url = "https://open-api.myhelsinki.fi/v2/places/";
+            string url = "https://open-api.myhelsinki.fi/v2/activities";
+            //string url = "https://open-api.myhelsinki.fi/v2/places/";
 
             try
             {
@@ -88,18 +88,11 @@ namespace W5_Project_Team7
                     {
                         string json = await response.Content.ReadAsStringAsync();
 
-                        V2Places places = JsonSerializer.Deserialize<V2Places>(json);
-                        //V2Activities activities = JsonSerializer.Deserialize<V2Activities>(json);
+                        //V2Places places = JsonSerializer.Deserialize<V2Places>(json);
+                        V2Activities activities = JsonSerializer.Deserialize<V2Activities>(json);
                         //V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
-                        for (int i = 0; i < places.data.Count(); i++)
-                        {
-                            if (CheckArea(places.data[i]))
-                            {
-                                Console.WriteLine(places.data[i]);
-                            }
-                        }
-                        
+                        FindActivity(activities);
 
                     }
                 }
@@ -187,6 +180,132 @@ namespace W5_Project_Team7
                 "Kaivopuisto", "Etu - Töölö", "Sörnäinen"
             };
             return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
+        }
+
+        public static void FindActivity(V2Activities activities)
+        {
+            Console.WriteLine("So, you want to find something to do!");
+            int priceLimit = int.MaxValue;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter a price limit in EUR: ('0' for no limit)");
+                    priceLimit = int.Parse(Console.ReadLine());
+                    if (priceLimit == 0)
+                    {
+                        priceLimit = int.MaxValue;
+                    }
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid input. Try again.");
+                }
+            }
+
+            Console.WriteLine("Enter a search word to find activities. Use English: ");
+            string searchWord = Console.ReadLine();
+
+            List<V2Activity> foundActivities = new List<V2Activity>();
+
+            foreach (V2Activity helsinkiActivity in activities.rows)
+            {
+                if (!(helsinkiActivity.descriptions.en is null))
+                {
+                    if (helsinkiActivity.descriptions.en.name.ToLower().Contains(searchWord.ToLower()) ||
+                        helsinkiActivity.descriptions.en.description.ToLower().Contains(searchWord.ToLower()) ||
+                        helsinkiActivity.tags.Contains(searchWord.ToLower()))
+                    {
+                        //if (IsActivityOpenToday(helsinkiActivity))
+                        //{
+                        //    if (helsinkiActivity.priceEUR.from < priceLimit)
+                        //    {
+                        //        foundActivities.Add(helsinkiActivity);
+                        //    }
+                        //}
+                        foundActivities.Add(helsinkiActivity);
+                    }
+                }
+                else
+                {
+                    if (helsinkiActivity.tags.Contains(searchWord))
+                    {
+                        //if (IsActivityOpenToday(helsinkiActivity))
+                        //{
+                        //    if (helsinkiActivity.priceEUR.from < priceLimit)
+                        //    {
+                        //        foundActivities.Add(helsinkiActivity);
+                        //    }
+                        //}
+                        foundActivities.Add(helsinkiActivity);
+                    }
+                }
+            }
+
+            if (!foundActivities.Any())
+            {
+                Console.WriteLine("No activities found - press any key to continue.");
+                Console.ReadKey(true);
+            }
+            else
+            {
+                while (true)
+                {
+                    Console.Clear();
+                    for (int i = 0; i < foundActivities.Count(); i++)
+                    {
+                        string activityName = foundActivities[i].descriptions.en is null
+                            ? foundActivities[i].descriptions.fi.name
+                            : foundActivities[i].descriptions.en.name;
+                        Console.WriteLine($"ID: {i} Activity name: {activityName}");
+                    }
+                    try
+                    {
+                        Console.WriteLine("\nWhich activity would you like to know about? Enter ID: ");
+                        int choice = int.Parse(Console.ReadLine());
+                        Console.Clear();
+                        Console.WriteLine(foundActivities[choice]);
+                        Console.WriteLine("\nPress any key to continue.");
+                        Console.ReadKey(true);
+                        break;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Invalid input. Try again.");
+                    }
+                }
+                
+            }
+
+
+        }
+
+        public static bool IsActivityOpenToday(V2Activity helsinkiActivity)
+        {
+            if (!helsinkiActivity.availableMonths.Contains(DateTime.Now.ToString("MMMM")))
+            {
+                return false;
+            }
+            switch (DateTime.Now.DayOfWeek.ToString())
+            {
+                case "Monday":
+                    return helsinkiActivity.open.monday.open.Equals(true);
+                case "Tuesday":
+                    return helsinkiActivity.open.tuesday.open.Equals(true);
+                case "Wednesday":
+                    return helsinkiActivity.open.wednesday.open.Equals(true);
+                case "Thursday":
+                    return helsinkiActivity.open.thursday.open.Equals(true);
+                case "Friday":
+                    return helsinkiActivity.open.friday.open.Equals(true);
+                case "Saturday":
+                    return helsinkiActivity.open.saturday.open.Equals(true);
+                case "Sunday":
+                    return helsinkiActivity.open.sunday.open.Equals(true);
+                default:
+                    return false;
+            }
         }
     }
 }

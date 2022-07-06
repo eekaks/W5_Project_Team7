@@ -57,7 +57,8 @@ namespace W5_Project_Team7
                                  "{7}\n" +
                                  "{8}\n" +
                                  "{9}\n" +
-                                 "\n{10}\n", activityName, priceEUR.from, priceEUR.to, duration + " " + durationType, address.postalCode, address.streetName, address.city, company.email, company.phone, whoFor, descriptionToPrint);
+                                 "\n{10}\n" +
+                                 "{11}\n", activityName, priceEUR.from, priceEUR.to, duration + " " + durationType, address.postalCode, address.streetName, address.city, company.email, company.phone, whoFor, descriptionToPrint, siteUrl);
         }
     }
 
