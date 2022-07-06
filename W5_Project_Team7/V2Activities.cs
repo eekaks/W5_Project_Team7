@@ -145,49 +145,49 @@ namespace W5_Project_Team7
 
     public class Sunday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Tuesday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Wednesday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Monday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Friday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Thursday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Saturday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
