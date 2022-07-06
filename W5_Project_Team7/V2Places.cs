@@ -51,7 +51,7 @@ namespace W5_Project_Team7
 
     public class Address
     {
-        public string streetAddress { get; set; }
+        public string street_address { get; set; }
         public string postalCode { get; set; }
         public string locality { get; set; }
         public string neighbourhood { get; set; }

@@ -81,11 +81,11 @@ namespace W5_Project_Team7
 
 
                         V1Events results = JsonSerializer.Deserialize<V1Events>(json);
-                        
-                        Console.WriteLine("Let's find you events to. Starting from what date would you like to look for?");
-                        Console.WriteLine("A - Now. B - From a specific date");
+
+                        Console.WriteLine("Let's find you events to attend! From which day would you like to look events?");
+                        Console.WriteLine("A - From today. B - From a specific date");
                         string answer = Console.ReadLine().ToLower();
-                        DateTime startDate;
+                        DateTime startDate = DateTime.Now;
 
                         if (answer is "a")
                         {
@@ -103,9 +103,9 @@ namespace W5_Project_Team7
                             Console.WriteLine("Please choose A or B.");
                         }
 
-                        Console.WriteLine("Do you want to specify and end date? Answer yes or no.");
+                        Console.WriteLine("Do you want to specify an end date? Answer yes or no.");
                         string answerTwo = Console.ReadLine().ToLower();
-                        DateTime endDate;
+                        DateTime endDate = DateTime.Now;
 
                         if (answerTwo is "yes")
                         {
@@ -115,40 +115,45 @@ namespace W5_Project_Team7
 
                         else if (answerTwo is "no")
                         {
-                            Console.WriteLine("Okay, showing you all the upcoming events within the next 12 months.");
-                            endDate = DateTime.Now.AddMonths(12);
+                            Console.WriteLine("Okay, showing you all the upcoming events within the next 6 months.");
+                            endDate = DateTime.Today.AddMonths(6);
                         }
 
-                        IQueryable<V1Event> inputDayEvents = (IQueryable<V1Event>)results.data.Where(e => e.event_dates.starting_day < startDate && e.event_dates.ending_day >= endDate);
-
-                            
-                            
-
-                        foreach (var item in results.data)
+                       var dayRangeEvents = results.data.Where(e => e.event_dates.starting_day >= startDate && e.event_dates.ending_day <= endDate);
+                        Console.WriteLine("The upcoming events during this time are:");
+                        foreach (var item in dayRangeEvents)
                         {
-                            if (!(item.event_dates.starting_day is null) && !(item.event_dates.ending_day is null))
-                            { 
-                                Console.WriteLine($"Starting day: {item.event_dates.starting_day} and ending day: {item.event_dates.ending_day}"); 
-                            }
-
-                            else
-                            {
-                                Console.WriteLine($"Starting day: {item.event_dates.starting_day} and ending day: {item.event_dates.ending_day}");
-                            }
+                            Console.WriteLine($"\nEvent name: {item.name.en} {item.name.fi}\nEvent location: {item.location.address.street_address}\nWhat the event is about: {item.description.intro}");
 
                         }
-
                     }
                 }
-
             }
+
+            //if (!(item.event_dates.starting_day is null) && !(item.event_dates.ending_day is null))
+            //{ 
+            //    Console.WriteLine($"Starting day: {item.event_dates.starting_day} and ending day: {item.event_dates.ending_day}"); 
+            //}
+
+            //else
+            //{
+            //    Console.WriteLine($"Starting day: {item.event_dates.starting_day} and ending day: {item.event_dates.ending_day}");
+            //}
+
 
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
-        }
-      }
+                        }
 
-    }
+                    }
+                }
+
+            
+
+           
+        
+     
+    
 
