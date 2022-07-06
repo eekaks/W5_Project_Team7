@@ -26,7 +26,7 @@ namespace W5_Project_Team7
         public Description description { get; set; }
         public Tag[] tags { get; set; }
         public string[] extra_searchwords { get; set; }
-        public string openingHoursUrl { get; set; }
+        public string opening_Hours_Url { get; set; }
     }
 
     public class Name

@@ -1,37 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\ChristianKeihäs\\Source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj": {}
+    "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ChristianKeihäs\\Source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj": {
+    "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ChristianKeihäs\\Source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+        "projectUniqueName": "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
         "projectName": "W5_Project_Team7",
-        "projectPath": "C:\\Users\\ChristianKeihäs\\Source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+        "projectPath": "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
         "packagesPath": "C:\\Users\\ChristianKeihäs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ChristianKeihäs\\Source\\W5_Project_Team7\\W5_Project_Team7\\obj\\",
+        "outputPath": "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ChristianKeihäs\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
-        "projectName": "W5_Project_Team7",
-        "projectPath": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
-        "packagesPath": "C:\\Users\\TiiaMeriranta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\TiiaMeriranta\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> main
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,11 +54,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
->>>>>>> main
         }
       }
     }
