@@ -13,20 +13,25 @@ namespace W5_Project_Team7
     {
         public string id { get; set; }
         public Name name { get; set; }
+        #nullable enable
         public Sourcetype? sourceType { get; set; }
-        public string infoUrl { get; set; }
-        public DateTime modifiedAt { get; set; }
+        #nullable disable
+        public string info_url { get; set; }
+        public DateTime modified_at { get; set; }
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }
-        public Eventdates eventDates { get; set; }
+        public Eventdates event_dates { get; set; }
     }
 
     public class Eventdates
     {
-        public DateTime startingDay { get; set; }
-        public DateTime endingDay { get; set; }
-        public Additionaldescription[] additionalDescription { get; set; }
+#nullable enable
+        public DateTime? starting_day { get; set; }
+        public DateTime? ending_day { get; set; }
+
+        public Additionaldescription[]? additionalDescription { get; set; }
+#nullable disable
     }
 
     public class Additionaldescription
