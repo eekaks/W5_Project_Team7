@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace W5_Project_Team7
 {
@@ -27,6 +28,37 @@ namespace W5_Project_Team7
         public string[] meantFor { get; set; }
         public string siteUrl { get; set; }
         public string storeUrl { get; set; }
+        public override string ToString()
+        {
+            string activityName = descriptions.en is null ? descriptions.fi.name : descriptions.en.name;
+            string descriptionToPrint =
+                descriptions.en is null ? descriptions.fi.description : descriptions.en.description;
+            string whoFor = "";
+            if (meantFor.Contains("b2c") && meantFor.Contains("b2b"))
+            {
+                whoFor = "Individuals, groups and businesses welcome";
+            }
+            else if (meantFor.Contains("b2c"))
+            {
+                whoFor = "Individuals and groups welcome.";
+            }
+            else if (meantFor.Contains("b2b"))
+            {
+                whoFor = "Businesses welcome";
+            }
+            
+            return String.Format("{0}\n" +
+                                 "Price from: {1}\n" +
+                                 "Price to: {2}\n" +
+                                 "Duration: {3}\n" +
+                                 "Address:\n{4}\n" +
+                                 "{5}\n" +
+                                 "{6}\n" +
+                                 "{7}\n" +
+                                 "{8}\n" +
+                                 "{9}\n" +
+                                 "\n{10}\n", activityName, priceEUR.from, priceEUR.to, duration + " " + durationType, address.postalCode, address.streetName, address.city, company.email, company.phone, whoFor, descriptionToPrint);
+        }
     }
 
    /* public class ActivityAddress

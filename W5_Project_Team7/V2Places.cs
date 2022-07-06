@@ -29,6 +29,19 @@ namespace W5_Project_Team7
         public Tag[] tags { get; set; }
         public string[] extra_searchwords { get; set; }
         public string opening_hours_url { get; set; }
+
+        public override string ToString()
+        {
+            string placeName = name.en is null ? name.fi : name.en;
+            return String.Format("{0}\n" +
+                                 "{1}\n" +
+                                 "{2}\n" +
+                                 "{3}\n" +
+                                 "{4}\n" +
+                                 "{5}\n" +
+                                 "\n{6}\n", placeName, info_url, location.address.street_address, location.address.postal_code,
+                location.address.locality, location.address.neighbourhood, description.body);
+        }
     }
 
     public class Name
