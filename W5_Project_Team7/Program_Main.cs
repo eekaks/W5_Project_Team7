@@ -15,6 +15,8 @@ namespace W5_Project_Team7
         static async Task Main(string[] args)
         {
             string url = "https://open-api.myhelsinki.fi/v1/events/";
+            //string url = "https://open-api.myhelsinki.fi/v2/activities";
+            //string url = "https://open-api.myhelsinki.fi/v2/places/";
 
             try
             {
@@ -28,13 +30,7 @@ namespace W5_Project_Team7
 
                         //V2Places places = JsonSerializer.Deserialize<V2Places>(json);
                         //V2Activities results = JsonSerializer.Deserialize<V2Activities>(json);
-                        V1Events events = JsonSerializer.Deserialize<V1Events>(json);
-
-                        foreach (V1Event helsinkiEvent in FindEventBySearchWordAndDate(events))
-                        {
-                            Console.WriteLine(helsinkiEvent.name.fi);
-                        }
-                        
+                        //V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
                     }
                 }

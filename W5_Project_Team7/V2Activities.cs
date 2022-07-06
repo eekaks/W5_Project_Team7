@@ -169,8 +169,10 @@ namespace W5_Project_Team7
 
     public class ActivityLocation
     {
-        public double lat { get; set; }
-        public double _long { get; set; }
+#nullable enable
+        public double? lat { get; set; }
+        public double? _long { get; set; }
+#nullable disable
     }
 
     public class Company

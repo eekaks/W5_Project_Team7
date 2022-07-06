@@ -16,8 +16,8 @@ namespace W5_Project_Team7
         #nullable enable
         public Sourcetype? sourceType { get; set; }
         #nullable disable
-        public string infoUrl { get; set; }
-        public DateTime modifiedAt { get; set; }
+        public string info_url { get; set; }
+        public DateTime modified_at { get; set; }
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }

@@ -22,8 +22,8 @@ namespace W5_Project_Team7
         #nullable enable
         public Sourcetype? sourceType { get; set; }
         #nullable disable
-        public string infoUrl { get; set; }
-        public DateTime modifiedAt { get; set; }
+        public string info_url { get; set; }
+        public DateTime modified_at { get; set; }
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }
@@ -62,7 +62,9 @@ namespace W5_Project_Team7
         public string street_address { get; set; }
         public string postal_code { get; set; }
         public string locality { get; set; }
-        public string neighbourhood { get; set; }
+#nullable enable
+        public string? neighbourhood { get; set; }
+#nullable disable
     }
 
     public class Description
@@ -73,13 +75,15 @@ namespace W5_Project_Team7
     }
 
     public class Image
+
     {
         public string url { get; set; }
-        public string copyrightHolder { get; set; }
+        public string copyright_holder { get; set; }
         #nullable enable
-        public Licensetype? licenseType { get; set; }
-        #nullable disable
-        public string media_id { get; set; }
+        public Licensetype? license_type { get; set; }
+        public string? media_id { get; set; }
+#nullable disable
+
     }
 
     public class Licensetype
