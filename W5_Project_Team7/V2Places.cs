@@ -60,15 +60,10 @@ namespace W5_Project_Team7
     public class Address
     {
         public string street_address { get; set; }
-<<<<<<< HEAD
-        public string postalCode { get; set; }
-=======
         public string postal_code { get; set; }
->>>>>>> main
         public string locality { get; set; }
-#nullable enable
         public string? neighbourhood { get; set; }
-#nullable disable
+
     }
 
     public class Description

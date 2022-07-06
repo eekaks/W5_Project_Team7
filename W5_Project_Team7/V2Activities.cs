@@ -29,10 +29,10 @@ namespace W5_Project_Team7
         public string storeUrl { get; set; }
     }
 
-    public class ActivityAddress
+   /* public class ActivityAddress
     {
     }
-
+   */
     public class Descriptions
     {
         #nullable enable

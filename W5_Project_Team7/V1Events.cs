@@ -26,18 +26,9 @@ namespace W5_Project_Team7
 
     public class Eventdates
     {
-<<<<<<< HEAD
         public DateTime? starting_day { get; set; }
         public DateTime? ending_day { get; set; }
-        public Additionaldescription[] additionalDescription { get; set; }
-=======
-#nullable enable
-        public DateTime? starting_day { get; set; }
-        public DateTime? ending_day { get; set; }
-
         public Additionaldescription[]? additionalDescription { get; set; }
-#nullable disable
->>>>>>> main
     }
 
     public class Additionaldescription
