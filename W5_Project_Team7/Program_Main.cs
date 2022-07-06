@@ -72,6 +72,11 @@ namespace W5_Project_Team7
             await EventDateRange();
         }
 
+        static async Task EventTypeSearch()
+        {
+
+        }
+
         static async Task EventDateRange()
         {
             string url = "http://open-api.myhelsinki.fi/v1/events/";
@@ -85,10 +90,10 @@ namespace W5_Project_Team7
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
                         string json = await response.Content.ReadAsStringAsync();
-                        V1Events results = JsonSerializer.Deserialize<V1Events>(json);
+                        V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
-                        Console.WriteLine("Let's find you events to attend! From which day would you like to look events?");
-                        Console.WriteLine("A - From today. B - From a specific date");
+                        Console.WriteLine("Let's find you events to attend! When are you coming to Helsinki?");
+                        Console.WriteLine("A - I am here already. B - Specify a day.");
 
                         string answer = Console.ReadLine().ToLower();
                         DateTime startDate = DateTime.Now;
@@ -100,7 +105,7 @@ namespace W5_Project_Team7
 
                         else if (answer is "b")
                         {
-                            Console.WriteLine("What date would you like to look for?");
+                            Console.WriteLine("What date are you coming? Please write the day in dd/mm/yyyy format.");
                             startDate = DateTime.Parse(Console.ReadLine());
                         }
                         else
@@ -108,31 +113,21 @@ namespace W5_Project_Team7
                             Console.WriteLine("Please choose A or B.");
                         }
 
-                        Console.WriteLine("Do you want to specify an end date? Answer yes or no.");
-                        string answerTwo = Console.ReadLine().ToLower();
-                        DateTime endDate = DateTime.Now;
+                        Console.WriteLine("What date are you leaving? Please write the day in dd/mm/yyyy format.");
+                        DateTime endDate = DateTime.Parse(Console.ReadLine());
 
-                        if (answerTwo is "yes")
+                        List<V1Event> FoundEvents = new List<V1Event>();
+                        var eventsearch = events.data.Where(e => startDate >= e.event_dates.starting_day  && endDate <= e.event_dates.ending_day).ToList();
+                        FoundEvents.AddRange(eventsearch);
+
+                        for (int i = 0; i < FoundEvents.Count; i++)
                         {
-                            Console.WriteLine("What date would you like it to end?");
-                            endDate = DateTime.Parse(Console.ReadLine());
+                            Console.WriteLine($"{i}: {FoundEvents[i]}");
                         }
 
-                        else if (answerTwo is "no")
-                        {
-                            Console.WriteLine("Okay, showing you all the upcoming events within the next 6 months.");
-                            endDate = DateTime.Today.AddMonths(6);
-                        }
-
-                        var dayRangeEvents = results.data.Where(e => e.event_dates.starting_day >= startDate && e.event_dates.ending_day <= endDate);
-                        Console.WriteLine("The upcoming events during this time are:");
-                        foreach (var item in dayRangeEvents)
-
-                        {
-                            Console.WriteLine($"\nEvent name: {item.name.en} {item.name.fi}\nEvent location: {item.location.address.street_address}\nWhat the event is about: {item.description.intro}");
-
-                        }
-
+                        Console.WriteLine("What event would you like to learn about more? Enter number: ");
+                        int choice = int.Parse(Console.ReadLine());
+                        Console.WriteLine(FoundEvents[choice]);
                     }
                 }
             }
