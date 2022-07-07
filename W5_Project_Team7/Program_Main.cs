@@ -132,7 +132,7 @@ namespace W5_Project_Team7
             await EventDateRange();
         }
 
-        static async Task EventTypeSearch(int eventtype, DateTime endDate)
+        static async Task EventTypeSearch(DateTime endDate)
         {
             string url = "http://open-api.myhelsinki.fi/v1/events/";
 
@@ -147,7 +147,11 @@ namespace W5_Project_Team7
                         string json = await response.Content.ReadAsStringAsync();
                         V1Events events = JsonSerializer.Deserialize<V1Events>(json);
 
-                        switch (eventtype)
+                        Console.WriteLine("What kind of event would you like attend? The categories available are:\n1. Concerts\n2. Theater\n3. (Art) Exhibitions\n4. Sporting events");
+                        int eventType = Convert.ToInt32(Console.ReadLine());
+                      
+
+                        switch (eventType)
                         {
                             case 1:
                                 List<V1Event> concerts = new List<V1Event>();
@@ -157,33 +161,58 @@ namespace W5_Project_Team7
                                 
                                 for (int i = 0; i < concerts.Count; i++)
                                     {
-                                      Console.WriteLine($"{i}: {concerts[i]}");
+                                      Console.WriteLine($"{i}: {concerts[i].name.en}");
                                     }
-                                    
-
+                                Console.WriteLine("What event would you like to learn about more? Enter number: ");
+                                int choice = int.Parse(Console.ReadLine());
+                                Console.WriteLine(concerts[choice]);
                                 break;
 
                             case 2:
-                                //teatteri
+                                List<V1Event> theatre = new List<V1Event>();
+                                var foundTheatre = events.data.Where(e => e.event_dates.ending_day != null).Where(e => endDate >= DateTime.Parse(e.event_dates.ending_day)
+                                && e.tags.Select(e => e.name).Contains("theatre"));
+                                theatre.AddRange(foundTheatre);
+
+                                for (int i = 0; i < theatre.Count; i++)
+                                {
+                                    Console.WriteLine($"{i}: {theatre[i].name.fi}");
+                                }
+                                Console.WriteLine("What event would you like to learn about more? Enter number: ");
+                                int choiceTwo = int.Parse(Console.ReadLine());
+                                Console.WriteLine(theatre[choiceTwo]);
 
                                 break;
                             case 3:
-                                //näyttely
+                                List<V1Event> exhibitions = new List<V1Event>();
+                                var foundExhibitions = events.data.Where(e => e.event_dates.ending_day != null).Where(e => endDate >= DateTime.Parse(e.event_dates.ending_day)
+                                && e.tags.Select(e => e.name).Contains("exhibitions"));
+                                exhibitions.AddRange(foundExhibitions);
+
+                                for (int i = 0; i < exhibitions.Count; i++)
+                                {
+                                    Console.WriteLine($"{i}: {exhibitions[i].name.fi}");
+                                }
+                                Console.WriteLine("What event would you like to learn about more? Enter number: ");
+                                int choiceThree = int.Parse(Console.ReadLine());
+                                Console.WriteLine(exhibitions[choiceThree]);
                                 break;
+
                             case 4:
-                                //urheilu
+                                List<V1Event> sports = new List<V1Event>();
+                                var foundSports = events.data.Where(e => e.event_dates.ending_day != null).Where(e => endDate >= DateTime.Parse(e.event_dates.ending_day)
+                                && e.tags.Select(e => e.name).Contains("sports"));
+                                sports.AddRange(foundSports);
+
+                                for (int i = 0; i < sports.Count; i++)
+                                {
+                                    Console.WriteLine($"{i}: {sports[i].name.fi}");
+                                }
+                                Console.WriteLine("What event would you like to learn about more? Enter number: ");
+                                int choiceFour = int.Parse(Console.ReadLine());
+                                Console.WriteLine(sports[choiceFour]);
                                 break;
-                            
-
                         }
-
-                        //tags.id
-                        //games = 285
-                        //concerts = 103
-                        //sports = 112
-                        //theatre = 226
-                        // exhibitions 225
-
                     }
                 }
             }
@@ -241,19 +270,18 @@ namespace W5_Project_Team7
 
                         if (answerTwo is "a")
                         {
-                            Console.WriteLine("What kind of event would you like attend? The categories available are:\n1. Concerts\n2. Theater\n3. (Art) Exhibitions\n4. Sporting events");
-                            int eventType = Convert.ToInt32(Console.ReadLine());
-                            await EventTypeSearch(eventType, endDate);
+                            
+                            await EventTypeSearch(endDate);
                         }
 
                         else if (answerTwo is "b")
                         {
-                            var eventsearch = events.data.Where(e => e.event_dates.ending_day != null).Where(e => startDate >= DateTime.Parse(e.event_dates.starting_day) && endDate <= DateTime.Parse(e.event_dates.ending_day)).ToList();
+                            var eventsearch = events.data.Where(e => e.event_dates.ending_day!= null).Where(e => e.event_dates.starting_day!= null).Where(e => startDate >= DateTime.Parse(e.event_dates.starting_day) && endDate <= DateTime.Parse(e.event_dates.ending_day)).ToList();
                             FoundEvents.AddRange(eventsearch);
 
                             for (int i = 0; i < FoundEvents.Count; i++)
                             {
-                                Console.WriteLine($"{i}: {FoundEvents[i]}");
+                                Console.WriteLine($"{i}: {FoundEvents[i].name.fi}");
                             }
 
                             Console.WriteLine("What event would you like to learn about more? Enter number: ");
