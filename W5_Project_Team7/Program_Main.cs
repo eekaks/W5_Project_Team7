@@ -17,10 +17,11 @@ namespace W5_Project_Team7
         {
 
             //otsikontulostusmetodia kutsutaan
-            bool programRunning = false;
+            bool programRunning = true;
 
             while (programRunning)
             {
+                Console.Clear();
                 Console.WriteLine("\n1. Find a restaurant\n" +
                                   "2. Go drink with Finns\n" +
                                   "3. See the sights\n" +
@@ -43,21 +44,27 @@ namespace W5_Project_Team7
                 switch (choice)
                 {
                     case 1:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - ravintola
                         break;
                     case 2:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - baari
                         break;
                     case 3:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - nähtävyys
                         break;
                     case 4:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - shoppailu
                         break;
                     case 5:
-                        //etsi aktiviteetti
+                        var response = await APIHelper.RunAsync<V2Activities>("https://open-api.myhelsinki.fi/v2/activities");
+                        FindActivity(response);
                         break;
                     case 6:
+                        //string url = "https://open-api.myhelsinki.fi/v1/events/";
                         //etsi tapahtuma
                         break;
                     case 0:
@@ -66,41 +73,7 @@ namespace W5_Project_Team7
                     default:
                         Console.WriteLine("Invalid input. Try again.");
                         break;
-
                 }
-            }
-
-            
-
-            
-
-
-            //string url = "https://open-api.myhelsinki.fi/v1/events/";
-            string url = "https://open-api.myhelsinki.fi/v2/activities";
-            //string url = "https://open-api.myhelsinki.fi/v2/places/";
-
-            try
-            {
-                using (var client = APIHelper.GetHttpClient(url))
-                {
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        string json = await response.Content.ReadAsStringAsync();
-
-                        //V2Places places = JsonSerializer.Deserialize<V2Places>(json);
-                        V2Activities activities = JsonSerializer.Deserialize<V2Activities>(json);
-                        //V1Events events = JsonSerializer.Deserialize<V1Events>(json);
-
-                        FindActivity(activities);
-
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
             }
         }
         public static List<V1Event> FindEventByDate(V1Events events)
