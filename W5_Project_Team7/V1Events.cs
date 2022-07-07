@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace W5_Project_Team7
 {
@@ -32,6 +33,12 @@ namespace W5_Project_Team7
                 ? "Ending date not specified."
                 : DateTime.Parse(event_dates.ending_day).ToShortDateString() + " " + DateTime.Parse(event_dates.ending_day).TimeOfDay;
 
+
+            string[] toReplace = {"<p>", "</p>", "<strong>", "</strong>", "<h1>", "</h1>", "<h2>", "</h2>",
+                "<h3>", "</h3>","<a>","</a>",@"<a href=\", "<br>", "</br>", "&nbsp", @"<a href=", "<b>", "</b>", "<em>", "</em>", ">"};
+            string[] temp = description.body.Split(toReplace, StringSplitOptions.RemoveEmptyEntries);
+            string fixedDescription = String.Join(" ", temp);
+
             return String.Format("{0}\n" +
                                  "{1}\n" +
                                  "{2}\n" +
@@ -41,7 +48,7 @@ namespace W5_Project_Team7
                                  "\n{6}\n" +
                                  "\nEvent starts: {7}\n" +
                                  "Event ends: {8}\n", eventName, informationUrl, location.address.street_address, location.address.postal_code,
-                location.address.locality, description.intro, description.body, startingDay, endingDay);
+                location.address.locality, description.intro, fixedDescription, startingDay, endingDay);
         }
     }
 
