@@ -15,6 +15,7 @@ namespace W5_Project_Team7
         static async Task Main(string[] args)
         {
 
+
             //otsikontulostusmetodia kutsutaan
             bool programRunning = false;
 
@@ -52,6 +53,7 @@ namespace W5_Project_Team7
                         break;
                     case 4:
                         //etsipaikka - shoppailu
+                        await ShowPlaces();
                         break;
                     case 5:
                         //etsi aktiviteetti
@@ -78,6 +80,7 @@ namespace W5_Project_Team7
             //string url = "https://open-api.myhelsinki.fi/v2/activities";
             string url = "https://open-api.myhelsinki.fi/v2/places/";
 
+
             try
             {
                 using (var client = APIHelper.GetHttpClient(url))
@@ -101,6 +104,7 @@ namespace W5_Project_Team7
                         }
                         
 
+
                     }
                 }
             }
@@ -108,7 +112,11 @@ namespace W5_Project_Team7
             {
                 Console.WriteLine(e.ToString());
             }
+            
+
+            
         }
+
         public static List<V1Event> FindEventByDate(V1Events events)
         {
             List<V1Event> foundEvents = new List<V1Event>();
@@ -188,5 +196,11 @@ namespace W5_Project_Team7
             };
             return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
         }
+
+
+
+
+        
+
     }
 }

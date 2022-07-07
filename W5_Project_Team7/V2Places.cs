@@ -28,6 +28,7 @@ namespace W5_Project_Team7
         public Description description { get; set; }
         public Tag[] tags { get; set; }
         public string[] extra_searchwords { get; set; }
+
         public string opening_hours_url { get; set; }
 
         public override string ToString()
@@ -42,6 +43,7 @@ namespace W5_Project_Team7
                                  "\n{6}\n", placeName, info_url, location.address.street_address, location.address.postal_code,
                 location.address.locality, location.address.neighbourhood, description.body);
         }
+
     }
 
     public class Name
