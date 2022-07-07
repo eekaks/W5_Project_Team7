@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d87b74511c53ac516a323b9e6ca77975e4c6f087
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
@@ -12,3 +17,52 @@ C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
 C:\Users\TiiaMeriranta\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache
+<<<<<<< HEAD
+=======
+=======
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.dev.json
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.AssemblyReference.cache
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfoInputs.cache
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfo.cs
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.CoreCompileInputs.cache
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\eetu\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache
+>>>>>>> eetu
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.AssemblyReference.cache
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfoInputs.cache
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfo.cs
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.CoreCompileInputs.cache
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.dev.json
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache
+=======
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.dev.json
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.AssemblyReference.cache
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfoInputs.cache
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.AssemblyInfo.cs
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.CoreCompileInputs.cache
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\Maria T\source\repos\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache
+>>>>>>> d2ee9267f9ef24cd6e03a9abee785a9fa04a19ae
+>>>>>>> d87b74511c53ac516a323b9e6ca77975e4c6f087
