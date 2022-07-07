@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,11 +8,15 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 
+=======
+﻿using System.Linq;
+>>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
 
 namespace W5_Project_Team7
 {
     class PlaceUtils
     {
+<<<<<<< HEAD
 
         //Tulostaa shoppailupaikat tagin mukaan
         public static async Task ShowPlaces()
@@ -198,6 +203,16 @@ namespace W5_Project_Team7
 
                 Console.WriteLine(e.Message);
             }
+=======
+        public static bool CheckArea(V2Place helsinkiPlace)
+        {
+            string[] neighbourhoods = new[]
+            {
+                "Kluuvi", "Kamppi", "Kruununhaka", "Punavuori", "Ullanlinna", "Kallio", "Vallila", "Eira",
+                "Kaivopuisto", "Etu - Töölö", "Sörnäinen"
+            };
+            return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
+>>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
         }
     }
 }

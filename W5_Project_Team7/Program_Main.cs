@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Net;
-using System.Net.Http;
-using System.Text.Json;
 
 
 namespace W5_Project_Team7
@@ -14,13 +8,17 @@ namespace W5_Project_Team7
     {
         static async Task Main(string[] args)
         {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
             //otsikontulostusmetodia kutsutaan
-            bool programRunning = false;
+            bool programRunning = true;
 
             while (programRunning)
             {
+                Console.Clear();
                 Console.WriteLine("\n1. Find a restaurant\n" +
                                   "2. Go drink with Finns\n" +
                                   "3. See the sights\n" +
@@ -43,22 +41,28 @@ namespace W5_Project_Team7
                 switch (choice)
                 {
                     case 1:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - ravintola
                         break;
                     case 2:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - baari
                         break;
                     case 3:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - nähtävyys
                         break;
                     case 4:
+                        //string url = "https://open-api.myhelsinki.fi/v2/places/";
                         //etsipaikka - shoppailu
                         await ShowPlaces();
                         break;
                     case 5:
-                        //etsi aktiviteetti
+                        var response = await APIHelper.RunAsync<V2Activities>("https://open-api.myhelsinki.fi/v2/activities");
+                        ActivityUtils.FindActivity(response);
                         break;
                     case 6:
+                        //string url = "https://open-api.myhelsinki.fi/v1/events/";
                         //etsi tapahtuma
                         break;
                     case 0:
@@ -67,9 +71,9 @@ namespace W5_Project_Team7
                     default:
                         Console.WriteLine("Invalid input. Try again.");
                         break;
-
                 }
             }
+<<<<<<< HEAD
 
             
 
@@ -195,6 +199,8 @@ namespace W5_Project_Team7
                 "Kaivopuisto", "Etu - Töölö", "Sörnäinen"
             };
             return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
+=======
+>>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
         }
 
 
