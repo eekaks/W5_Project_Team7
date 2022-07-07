@@ -47,27 +47,23 @@ namespace W5_Project_Team7
                 whoFor = "Businesses welcome";
             }
             
-            return String.Format("{0}\n" +
-                                 "Price from: {1}\n" +
-                                 "Price to: {2}\n" +
-                                 "Duration: {3}\n" +
-                                 "Address:\n{4}\n" +
-                                 "{5}\n" +
-                                 "{6}\n" +
-                                 "{7}\n" +
-                                 "{8}\n" +
-                                 "{9}\n" +
-                                 "\n{10}\n", activityName, priceEUR.from, priceEUR.to, duration + " " + durationType, address.postalCode, address.streetName, address.city, company.email, company.phone, whoFor, descriptionToPrint);
+            return $"{activityName}\n" +
+                   $"Price from: {priceEUR.from} EUR\n" +
+                   $"Price to: {priceEUR.to} EUR\n" +
+                   $"Duration: {duration}  {durationType}\n" +
+                   $"Address:\n{address.postalCode}\n" +
+                   $"{address.streetName}\n" +
+                   $"{address.city}\n" +
+                   $"{company.email}\n" +
+                   $"{company.phone}\n" +
+                   $"\n{whoFor}\n" +
+                   $"\n{descriptionToPrint}\n" +
+                   $"{siteUrl}\n";
         }
     }
 
-   /* public class ActivityAddress
-    {
-    }
-   */
     public class Descriptions
     {
-        #nullable enable
         public En? en { get; set; }
         public Fi? fi { get; set; }
         public Fr? fr { get; set; }
@@ -78,8 +74,6 @@ namespace W5_Project_Team7
         public Sv? sv { get; set; }
         public Ja? ja { get; set; }
         public Zh? zh { get; set; }
-        #nullable disable
-
     }
 
     public class En
@@ -148,49 +142,49 @@ namespace W5_Project_Team7
 
     public class Sunday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Tuesday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Wednesday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Monday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Friday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Thursday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
 
     public class Saturday
     {
-        public object open { get; set; }
+        public bool open { get; set; }
         public object from { get; set; }
         public object to { get; set; }
     }
@@ -205,10 +199,9 @@ namespace W5_Project_Team7
 
     public class ActivityLocation
     {
-#nullable enable
         public double? lat { get; set; }
         public double? _long { get; set; }
-#nullable disable
+
     }
 
     public class Company
@@ -221,11 +214,11 @@ namespace W5_Project_Team7
 
     public class Priceeur
     {
-        #nullable enable
+       
         public double? from { get; set; }
         public double? to { get; set; }
         public string? pricingType { get; set; }
-        #nullable disable
+        
     }
 
     public class Medium
