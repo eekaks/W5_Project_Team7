@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Net;
-using System.Net.Http;
-using System.Text.Json;
 
 
 namespace W5_Project_Team7
@@ -15,7 +10,6 @@ namespace W5_Project_Team7
     {
         static async Task Main(string[] args)
         {
-
             //otsikontulostusmetodia kutsutaan
             bool programRunning = true;
 
