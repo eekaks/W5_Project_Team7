@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
+
+
 
 
 namespace W5_Project_Team7
@@ -13,54 +16,70 @@ namespace W5_Project_Team7
     {
         static async Task Main(string[] args)
         {
-            string url = "http://open-api.myhelsinki.fi/v2/activities";
 
-            try
+            bool programRunning = true;
+
+            while (programRunning)
             {
-                using (var client = APIHelper.GetHttpClient(url))
-                {
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    if (response.StatusCode == HttpStatusCode.OK)
+                Console.WriteLine("\n1. Find a restaurant\n" +
+                                  "2. Go drink with Finns\n" +
+                                  "3. See the sights\n" +
+                                  "4. Shop 'til you drop\n" +
+                                  "5. Find an activity\n" +
+                                  "6. Take part in an event\n" +
+                                  "0. exit");
+                int choice;
+                while (true)
+                    try
                     {
-                        string json = await response.Content.ReadAsStringAsync();
-
-
-                        V2Activities results = JsonSerializer.Deserialize<V2Activities>(json);
-
-                        foreach (var item in results.rows)
-                        {
-                            try
-                            {
-                                Console.WriteLine($"Company: {item.company.name}, For who: {item.meantFor[0]}");
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine($"Company: {item.company}, Meant for not found");
-                            }
-                        }
-
-                        /*
-
-                        foreach (var item in results.rows)
-                        {
-                            try
-                            {
-                                Console.WriteLine("Company name: " + item.company.name + "Description: " + item.descriptions.additionalprop2.name);
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Company name: " + item.company.name + "Description not found");
-                            }
-                        }
-                        */
+                        choice = int.Parse(Console.ReadLine());
+                        break;
                     }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Invalid input. Try again.");
+                    }
+
+                switch (choice)
+                {
+                    case 1:
+                        //etsipaikka - ravintola
+                        await RestaurantByLocation();
+                        break;
+                    case 2:
+                        //etsipaikka - baari
+                        await BarByLocation();
+                        break;
+                    case 3:
+                        //etsipaikka - nähtävyys
+                        break;
+                    case 4:
+                        //etsipaikka - shoppailu
+                        break;
+                    case 5:
+                        //etsi aktiviteetti
+                        break;
+                    case 6:
+                        //etsi tapahtuma
+                        break;
+                    case 0:
+                        programRunning = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Try again.");
+                        break;
+
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+
+
         }
+
     }
 }
+
+                   
+
+
+
+
