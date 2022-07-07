@@ -64,7 +64,6 @@ namespace W5_Project_Team7
 
     public class Descriptions
     {
-        #nullable enable
         public En? en { get; set; }
         public Fi? fi { get; set; }
         public Fr? fr { get; set; }
@@ -75,8 +74,6 @@ namespace W5_Project_Team7
         public Sv? sv { get; set; }
         public Ja? ja { get; set; }
         public Zh? zh { get; set; }
-        #nullable disable
-
     }
 
     public class En
@@ -202,10 +199,9 @@ namespace W5_Project_Team7
 
     public class ActivityLocation
     {
-#nullable enable
         public double? lat { get; set; }
         public double? _long { get; set; }
-#nullable disable
+
     }
 
     public class Company
@@ -218,11 +214,11 @@ namespace W5_Project_Team7
 
     public class Priceeur
     {
-        #nullable enable
+       
         public double? from { get; set; }
         public double? to { get; set; }
         public string? pricingType { get; set; }
-        #nullable disable
+        
     }
 
     public class Medium

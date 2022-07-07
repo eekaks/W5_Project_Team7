@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
-
+using System.Linq;
 
 namespace W5_Project_Team7
 {
@@ -76,6 +76,9 @@ namespace W5_Project_Team7
                 }
             }
         }
+
+        
+
         public static List<V1Event> FindEventByDate(V1Events events)
         {
             List<V1Event> foundEvents = new List<V1Event>();
@@ -91,7 +94,9 @@ namespace W5_Project_Team7
             return foundEvents;
         }
 
-        public static List<V1Event> FindEventBySearchWordAndDate(V1Events events)
+ 
+
+    public static List<V1Event> FindEventBySearchWordAndDate(V1Events events)
         {
             List<V1Event> foundEvents = FindEventByDate(events);
             string searchInput = "";
@@ -404,6 +409,17 @@ namespace W5_Project_Team7
                     Console.ReadKey(true);
                 }
             }
-        }
+                        }
+       
     }
 }
+                    
+                
+
+            
+
+           
+        
+     
+    
+

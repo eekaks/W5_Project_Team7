@@ -13,9 +13,8 @@ namespace W5_Project_Team7
     {
         public string id { get; set; }
         public Name name { get; set; }
-        #nullable enable
         public Sourcetype? sourceType { get; set; }
-        #nullable disable
+  
         public string info_url { get; set; }
         public DateTime modified_at { get; set; }
         public Location location { get; set; }
@@ -48,13 +47,12 @@ namespace W5_Project_Team7
 
     public class Eventdates
     {
-#nullable enable
         public string? starting_day { get; set; }
 
         public string? ending_day { get; set; }
 
         public Additionaldescription[]? additionalDescription { get; set; }
-#nullable disable
+
     }
 
     public class Additionaldescription
