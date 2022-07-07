@@ -1,16 +1,11 @@
 ﻿using System;
-<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Text;
-=======
->>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
 
 namespace W5_Project_Team7
 {
     class UserUI
     {
-<<<<<<< HEAD
-
         static void MainBanner()
         {
 
@@ -39,9 +34,8 @@ namespace W5_Project_Team7
                                              |_|  |_|\___|_|___/_|_| |_|_|\_\_|
 
         ");
+        }
 
-
-=======
         public static DateTime GetDateTime()
         {
             while (true)
@@ -70,7 +64,6 @@ namespace W5_Project_Team7
             Console.WriteLine(new string('*', 60));
             Console.WriteLine("*" + new string(' ', emptiesLeft) + title + new string(' ', emptiesRight) + "*");
             Console.WriteLine(new string('*', 60) + "\n");
->>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
         }
     }
 }

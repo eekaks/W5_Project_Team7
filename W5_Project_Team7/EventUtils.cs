@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using System.Text;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
-=======
->>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
-using System.Linq;
 
 namespace W5_Project_Team7
 {
     class EventUtils
     {
-<<<<<<< HEAD
         static async Task EventTypeSearch(DateTime endDate)
         {
             string url = "http://open-api.myhelsinki.fi/v1/events/";
@@ -149,7 +142,8 @@ namespace W5_Project_Team7
 
                         List<V1Event> FoundEvents = new List<V1Event>();
 
-                        Console.WriteLine("Would you like to search events through a category or see all ongoing events during your stay?"
+                        Console.WriteLine(
+                            "Would you like to search events through a category or see all ongoing events during your stay?"
                             + "\nA- You want to search specific categories. B- You want to see all events.");
                         string answerTwo = Console.ReadLine().ToLower();
 
@@ -161,7 +155,10 @@ namespace W5_Project_Team7
 
                         else if (answerTwo is "b")
                         {
-                            var eventsearch = events.data.Where(e => e.event_dates.ending_day != null).Where(e => e.event_dates.starting_day != null).Where(e => startDate >= DateTime.Parse(e.event_dates.starting_day) && endDate <= DateTime.Parse(e.event_dates.ending_day)).ToList();
+                            var eventsearch = events.data.Where(e => e.event_dates.ending_day != null)
+                                .Where(e => e.event_dates.starting_day != null).Where(e =>
+                                    startDate >= DateTime.Parse(e.event_dates.starting_day) &&
+                                    endDate <= DateTime.Parse(e.event_dates.ending_day)).ToList();
                             FoundEvents.AddRange(eventsearch);
 
                             for (int i = 0; i < FoundEvents.Count; i++)
@@ -175,7 +172,9 @@ namespace W5_Project_Team7
                         }
 
                         else
-                        { Console.WriteLine("Please write A or B."); }
+                        {
+                            Console.WriteLine("Please write A or B.");
+                        }
                     }
                 }
             }
@@ -183,7 +182,8 @@ namespace W5_Project_Team7
             {
                 Console.WriteLine(e.ToString());
             }
-=======
+        }
+
         public static List<V1Event> FindEventByDate(V1Events events)
         {
             List<V1Event> foundEvents = new List<V1Event>();
@@ -252,7 +252,6 @@ namespace W5_Project_Team7
                 Console.WriteLine("No events found!");
             }
             return foundSearchEvents;
->>>>>>> 471f6190ef13f3ab9421863266b4904d181a5d1b
         }
     }
 }
