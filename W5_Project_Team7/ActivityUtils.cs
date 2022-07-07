@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace W5_Project_Team7
 {
+    //tämän tiedoston teki Eetu Laine
     class ActivityUtils
     {
         public static void FindActivity(V2Activities activities)

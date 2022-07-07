@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace W5_Project_Team7
 
 {
+    //tämän tiedoston sisällön on toimittanut Heidi Wikman
     public static class APIHelper
     {
         public static HttpClient GetHttpClient(string url)

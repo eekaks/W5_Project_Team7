@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace W5_Project_Team7
 {
+    //tämän kasasi Christian Keihäs, Maria Toivanen, Tiia Meriranta ja debuggasi Eetu Laine
     public class V2Activities
     {
         public int offset { get; set; }

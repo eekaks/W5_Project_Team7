@@ -8,9 +8,11 @@ using System.Text.Json;
 
 namespace W5_Project_Team7
 {
+    //tässä tiedostossa on metodeja koodareilta Maria Toivanen ja Eetu Laine (merkitty alle)
     class EventUtils
     {
-        static async Task EventTypeSearch(DateTime endDate)
+        //Maria Toivanen
+        public static async Task EventTypeSearch(DateTime endDate)
         {
             string url = "http://open-api.myhelsinki.fi/v1/events/";
 
@@ -43,7 +45,10 @@ namespace W5_Project_Team7
                                 }
                                 Console.WriteLine("What event would you like to learn about more? Enter number: ");
                                 int choice = int.Parse(Console.ReadLine());
+                                Console.Clear();
                                 Console.WriteLine(concerts[choice]);
+                                Console.WriteLine("Press any key to continue.");
+                                Console.ReadKey(true);
                                 break;
 
                             case 2:
@@ -58,8 +63,10 @@ namespace W5_Project_Team7
                                 }
                                 Console.WriteLine("What event would you like to learn about more? Enter number: ");
                                 int choiceTwo = int.Parse(Console.ReadLine());
+                                Console.Clear();
                                 Console.WriteLine(theatre[choiceTwo]);
-
+                                Console.WriteLine("Press any key to continue.");
+                                Console.ReadKey(true);
                                 break;
                             case 3:
                                 List<V1Event> exhibitions = new List<V1Event>();
@@ -73,7 +80,10 @@ namespace W5_Project_Team7
                                 }
                                 Console.WriteLine("What event would you like to learn about more? Enter number: ");
                                 int choiceThree = int.Parse(Console.ReadLine());
+                                Console.Clear();
                                 Console.WriteLine(exhibitions[choiceThree]);
+                                Console.WriteLine("Press any key to continue.");
+                                Console.ReadKey(true);
                                 break;
 
                             case 4:
@@ -88,7 +98,10 @@ namespace W5_Project_Team7
                                 }
                                 Console.WriteLine("What event would you like to learn about more? Enter number: ");
                                 int choiceFour = int.Parse(Console.ReadLine());
+                                Console.Clear();
                                 Console.WriteLine(sports[choiceFour]);
+                                Console.WriteLine("Press any key to continue.");
+                                Console.ReadKey(true);
                                 break;
                         }
                     }
@@ -99,9 +112,11 @@ namespace W5_Project_Team7
             {
                 Console.WriteLine(e.ToString());
             }
+            
         }
 
-        static async Task EventDateRange()
+        //Maria Toivanen
+        public static async Task EventDateRange()
         {
             string url = "http://open-api.myhelsinki.fi/v1/events/";
 
@@ -184,6 +199,7 @@ namespace W5_Project_Team7
             }
         }
 
+        // Eetu Laine (tätä ei otettu käyttöön)
         public static List<V1Event> FindEventByDate(V1Events events)
         {
             List<V1Event> foundEvents = new List<V1Event>();
@@ -199,6 +215,7 @@ namespace W5_Project_Team7
             return foundEvents;
         }
 
+        // Eetu Laine (tätä ei otettu käyttöön)
         public static List<V1Event> FindEventBySearchWordAndDate(V1Events events)
         {
             List<V1Event> foundEvents = FindEventByDate(events);

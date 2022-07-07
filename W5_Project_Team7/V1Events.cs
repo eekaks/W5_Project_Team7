@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 
 namespace W5_Project_Team7
 {
+    //tämän kasasi ja debuggasi Eetu Laine
     public class V1Events
     {
         public Meta meta { get; set; }

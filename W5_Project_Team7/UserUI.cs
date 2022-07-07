@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace W5_Project_Team7
 {
+    //tässä tiedostossa on metodeja koodareilta Maria Toivanen ja Eetu Laine (merkitty alle)
     class UserUI
     {
-        static void MainBanner()
+        //Maria Toivanen
+        public static void MainBanner()
         {
 
             Console.WriteLine(@"                      
@@ -36,6 +36,7 @@ namespace W5_Project_Team7
         ");
         }
 
+        //Eetu Laine
         public static DateTime GetDateTime()
         {
             while (true)
@@ -53,17 +54,18 @@ namespace W5_Project_Team7
             }
         }
 
+        //Eetu Laine
         public static void PrintBanner(string title)
         {
-            int emptiesLeft = (59 - title.Length) / 2;
-            int emptiesRight = (59 - title.Length) / 2;
+            int emptiesLeft = (129 - title.Length) / 2;
+            int emptiesRight = (129 - title.Length) / 2;
             if (title.Length % 2 != 0)
             {
                 emptiesRight -= 1;
             }
-            Console.WriteLine(new string('*', 60));
+            Console.WriteLine(new string('*', 130));
             Console.WriteLine("*" + new string(' ', emptiesLeft) + title + new string(' ', emptiesRight) + "*");
-            Console.WriteLine(new string('*', 60) + "\n");
+            Console.WriteLine(new string('*', 130) + "\n");
         }
     }
 }
