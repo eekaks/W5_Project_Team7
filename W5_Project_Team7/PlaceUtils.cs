@@ -12,7 +12,7 @@ using System.Text.Json;
 
 namespace W5_Project_Team7
 {
-    class Program1
+    class PlaceUtils
     {
        
         public static bool CheckArea(V2Place helsinkiPlace)
@@ -25,7 +25,7 @@ namespace W5_Project_Team7
             return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
         }
 
-        static async Task PrintNameByLocation()
+        public static async Task PrintNameByLocation()
         {
             string url = "http://open-api.myhelsinki.fi/v2/places/";
 
@@ -63,7 +63,7 @@ namespace W5_Project_Team7
             }
         }
 
-        static async Task BarByLocation()
+        public static async Task BarByLocation()
         {
             string url = "http://open-api.myhelsinki.fi/v2/places/";
             try
@@ -133,7 +133,7 @@ namespace W5_Project_Team7
             }
         }
 
-        static async Task RestaurantByLocation()
+        public static async Task RestaurantByLocation()
         {
             string url = "http://open-api.myhelsinki.fi/v2/places/";
             try

@@ -19,9 +19,11 @@ namespace W5_Project_Team7
     {
         public string id { get; set; }
         public Name name { get; set; }
+        #nullable enable
         public Sourcetype? sourceType { get; set; }
-        public string info_Url { get; set; }
-        public DateTime modifiedAt { get; set; }
+        #nullable disable
+        public string info_url { get; set; }
+        public DateTime modified_at { get; set; }
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }
@@ -37,12 +39,8 @@ namespace W5_Project_Team7
                                  "{3}\n" +
                                  "{4}\n" +
                                  "{5}\n" +
-                                 "\n{6}\n", placeName, info_Url, location.address.street_address, location.address.postal_code,
+                                 "\n{6}\n", placeName, info_url, location.address.street_address, location.address.postal_code,
                 location.address.locality, location.address.neighbourhood, description.body);
-        }
-        public V2Place()
-        {
-
         }
     }
 
@@ -56,12 +54,18 @@ namespace W5_Project_Team7
 
     public class Sourcetype
     {
+        #nullable enable
+        public int? id { get; set; }
+        public string? name { get; set; }
+        #nullable disable
     }
 
     public class Location
     {
+        #nullable enable
         public double? lat { get; set; }
         public double? lon { get; set; }
+        #nullable disable
         public Address address { get; set; }
     }
 
@@ -71,7 +75,9 @@ namespace W5_Project_Team7
         public string street_address { get; set; }
         public string postal_code { get; set; }
         public string locality { get; set; }
-        public string neighbourhood { get; set; }
+#nullable enable
+        public string? neighbourhood { get; set; }
+#nullable disable
     }
 
     public class Description
@@ -82,17 +88,23 @@ namespace W5_Project_Team7
     }
 
     public class Image
+
     {
         public string url { get; set; }
-        public string copyrightHolder { get; set; }
-        public Licensetype? licenseType { get; set; }
-        public string media_id { get; set; }
+        public string copyright_holder { get; set; }
+        #nullable enable
+        public Licensetype? license_type { get; set; }
+        public string? media_id { get; set; }
+#nullable disable
+
     }
 
     public class Licensetype
     {
+        #nullable enable
         public int? id { get; set; }
         public string? name { get; set; }
+        #nullable disable
     }
 
     public class Tag
