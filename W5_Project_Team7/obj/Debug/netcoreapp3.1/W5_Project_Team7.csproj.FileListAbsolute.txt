@@ -36,3 +36,10 @@ C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\net
 C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.csproj.CoreCompileInputs.cache
 C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.dll
 C:\Users\ChristianKeihäs\Source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.exe
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.deps.json
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.json
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.runtimeconfig.dev.json
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.dll
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\bin\Debug\netcoreapp3.1\W5_Project_Team7.pdb
+C:\Users\ChristianKeihäs\source\W5_Project_Team7\W5_Project_Team7\obj\Debug\netcoreapp3.1\W5_Project_Team7.genruntimeconfig.cache

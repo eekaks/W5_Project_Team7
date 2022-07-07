@@ -12,35 +12,6 @@ namespace W5_Project_Team7
 {
     class Program
     {
-        static async Task ShowPlaces()
-        {
-            string url = "https://open-api.myhelsinki.fi/v2/places/";
-
-            try
-            {
-                using (var client = APIHelper.GetHttpClient(url))
-                {
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    if(response.StatusCode == HttpStatusCode.OK)
-                    {
-                        string json = await response.Content.ReadAsStringAsync();
-
-                        V2Places result = JsonSerializer.Deserialize<V2Places>(json);
-
-                        foreach (var item in result.data)
-                        {
-                            Console.WriteLine(item);
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
         static async Task Main(string[] args)
         {
 
@@ -82,6 +53,7 @@ namespace W5_Project_Team7
                         break;
                     case 4:
                         //etsipaikka - shoppailu
+                        await ShowPlaces();
                         break;
                     case 5:
                         //etsi aktiviteetti
@@ -140,9 +112,9 @@ namespace W5_Project_Team7
             {
                 Console.WriteLine(e.ToString());
             }
-            */
+            
 
-            ShowPlaces();
+            
         }
 
         public static List<V1Event> FindEventByDate(V1Events events)
@@ -223,6 +195,157 @@ namespace W5_Project_Team7
                 "Kaivopuisto", "Etu - Töölö", "Sörnäinen"
             };
             return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
+        }
+
+
+
+
+        //Näyttää shoppailupaikat tagien mukaan
+        public static async Task ShowPlaces()
+        {
+            string url = "https://open-api.myhelsinki.fi/v2/places/";
+
+            try
+            {
+                using (var client = APIHelper.GetHttpClient(url))
+                {
+                    //Lähettää kutsun apille
+                    HttpResponseMessage response = await client.GetAsync(url);
+
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        //Lukee apin sisällön
+                        var json = await response.Content.ReadAsStringAsync();
+
+                        //Luodaan olio
+                        V2Places result = JsonSerializer.Deserialize<V2Places>(json);
+
+                        Console.WriteLine("You want to go shopping? What are you looking for? Select an option below: \n" +
+                            "1) Shoes \n" +
+                            "2) Bags \n" +
+                            "3) Kids clothing \n" +
+                            "4) Souvenirs");
+                        int answer = int.Parse(Console.ReadLine());
+
+                        foreach (var item in result.data)
+                        {
+                            if (answer == 1)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Shoes"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                            if (answer == 2)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Bags"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                            if (answer == 3)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Kids clothing"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                            if (answer == 4)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Souvenirs"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
+
+
+        //Näyttää ravintolat tagien mukaan
+        public static async Task ShowRestaurants()
+        {
+            string url = "https://open-api.myhelsinki.fi/v2/places/";
+
+            try
+            {
+                using (var client = APIHelper.GetHttpClient(url))
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        //Lukee apin sisällön
+                        var json = await response.Content.ReadAsStringAsync();
+
+                        //Luodaan olio
+                        V2Places result = JsonSerializer.Deserialize<V2Places>(json);
+
+                        Console.WriteLine("You want to eat? What are you looking for? Select an option below: \n" +
+                            "1) Pizza \n" +
+                            "2) Sushi \n" +
+                            "3) Hamburger \n" +
+                            "4) Asian");
+                        int answer = int.Parse(Console.ReadLine());
+
+                        foreach (var item in result.data)
+                        {
+                            if (answer == 1)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Pizza"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                            if (answer == 2)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Sushi"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                            if (answer == 3)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Hamburger"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                            if (answer == 4)
+                            {
+                                if (item.tags.Select(x => x.name).Contains("Asian"))
+                                {
+                                    Console.WriteLine("Company name: " + item.name.en);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
         }
 
     }
