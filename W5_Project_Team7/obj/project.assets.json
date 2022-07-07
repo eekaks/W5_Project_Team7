@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TiiaMeriranta\\Source\\Repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+      "projectUniqueName": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
       "projectName": "W5_Project_Team7",
-      "projectPath": "C:\\Users\\TiiaMeriranta\\Source\\Repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+      "projectPath": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
       "packagesPath": "C:\\Users\\TiiaMeriranta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TiiaMeriranta\\Source\\Repos\\W5_Project_Team7\\W5_Project_Team7\\obj\\",
+      "outputPath": "C:\\Users\\TiiaMeriranta\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TiiaMeriranta\\AppData\\Roaming\\NuGet\\NuGet.Config",

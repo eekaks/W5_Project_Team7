@@ -20,13 +20,30 @@ namespace W5_Project_Team7
         public string id { get; set; }
         public Name name { get; set; }
         public Sourcetype? sourceType { get; set; }
-        public string infoUrl { get; set; }
+        public string info_Url { get; set; }
         public DateTime modifiedAt { get; set; }
         public Location location { get; set; }
         public Description description { get; set; }
         public Tag[] tags { get; set; }
         public string[] extra_searchwords { get; set; }
-        public string openingHoursUrl { get; set; }
+        public string opening_hours_url { get; set; }
+
+        public override string ToString()
+        {
+            string placeName = name.en is null ? name.fi : name.en;
+            return String.Format("{0}\n" +
+                                 "{1}\n" +
+                                 "{2}\n" +
+                                 "{3}\n" +
+                                 "{4}\n" +
+                                 "{5}\n" +
+                                 "\n{6}\n", placeName, info_Url, location.address.street_address, location.address.postal_code,
+                location.address.locality, location.address.neighbourhood, description.body);
+        }
+        public V2Place()
+        {
+
+        }
     }
 
     public class Name
@@ -51,8 +68,8 @@ namespace W5_Project_Team7
 
     public class Address
     {
-        public string streetAddress { get; set; }
-        public string postalCode { get; set; }
+        public string street_address { get; set; }
+        public string postal_code { get; set; }
         public string locality { get; set; }
         public string neighbourhood { get; set; }
     }
