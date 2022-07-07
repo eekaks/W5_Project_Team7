@@ -8,11 +8,16 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\ChristianKeihäs\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\Maria T\\.nuget\\packages\\": {}
+>>>>>>> d2ee9267f9ef24cd6e03a9abee785a9fa04a19ae
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
       "projectName": "W5_Project_Team7",
       "projectPath": "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
@@ -21,6 +26,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ChristianKeihäs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\Maria T\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+      "projectName": "W5_Project_Team7",
+      "projectPath": "C:\\Users\\Maria T\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+      "packagesPath": "C:\\Users\\Maria T\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Maria T\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Maria T\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> d2ee9267f9ef24cd6e03a9abee785a9fa04a19ae
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

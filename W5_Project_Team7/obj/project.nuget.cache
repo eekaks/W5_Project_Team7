@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "28iFpfD8fA68Mc6ausC2RHEM7JYJA5ZRPM7IulHgnw7JOlIsuGOtjVVy/gNigUV+kuWHQl/Uemo9J1biSyrbDw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ChristianKeihäs\\source\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+=======
+  "dgSpecHash": "+jeyC2JIega4fs1mM/1KlUDYVCQTC6rIqdWYDyb859A3/4UdzKBAj5roJ+olRGUKj+Yll7kdcS1/5NlcccCv4A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Maria T\\source\\repos\\W5_Project_Team7\\W5_Project_Team7\\W5_Project_Team7.csproj",
+>>>>>>> d2ee9267f9ef24cd6e03a9abee785a9fa04a19ae
   "expectedPackageFiles": [],
   "logs": []
 }

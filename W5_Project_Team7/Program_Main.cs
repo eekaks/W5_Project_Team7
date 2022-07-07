@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-
 namespace W5_Project_Team7
 {
     class Program
@@ -73,6 +72,7 @@ namespace W5_Project_Team7
                         break;
                 }
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
             
@@ -208,5 +208,19 @@ namespace W5_Project_Team7
 
         
 
+=======
+                        }
+       
+>>>>>>> d2ee9267f9ef24cd6e03a9abee785a9fa04a19ae
     }
 }
+                    
+                
+
+            
+
+           
+        
+     
+    
+
