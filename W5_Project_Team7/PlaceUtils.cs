@@ -12,7 +12,9 @@ using System.Text.Json;
 
 namespace W5_Project_Team7
 {
-   
+    class Program1
+    {
+       
         public static bool CheckArea(V2Place helsinkiPlace)
         {
             string[] neighbourhoods = new[]
@@ -220,5 +222,5 @@ namespace W5_Project_Team7
         }
 
 
-  
+    }
 }
