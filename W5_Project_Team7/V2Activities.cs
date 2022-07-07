@@ -47,18 +47,18 @@ namespace W5_Project_Team7
                 whoFor = "Businesses welcome";
             }
             
-            return String.Format("{0}\n" +
-                                 "Price from: {1}\n" +
-                                 "Price to: {2}\n" +
-                                 "Duration: {3}\n" +
-                                 "Address:\n{4}\n" +
-                                 "{5}\n" +
-                                 "{6}\n" +
-                                 "{7}\n" +
-                                 "{8}\n" +
-                                 "{9}\n" +
-                                 "\n{10}\n" +
-                                 "{11}\n", activityName, priceEUR.from, priceEUR.to, duration + " " + durationType, address.postalCode, address.streetName, address.city, company.email, company.phone, whoFor, descriptionToPrint, siteUrl);
+            return $"{activityName}\n" +
+                   $"Price from: {priceEUR.from} EUR\n" +
+                   $"Price to: {priceEUR.to} EUR\n" +
+                   $"Duration: {duration}  {durationType}\n" +
+                   $"Address:\n{address.postalCode}\n" +
+                   $"{address.streetName}\n" +
+                   $"{address.city}\n" +
+                   $"{company.email}\n" +
+                   $"{company.phone}\n" +
+                   $"\n{whoFor}\n" +
+                   $"\n{descriptionToPrint}\n" +
+                   $"{siteUrl}\n";
         }
     }
 

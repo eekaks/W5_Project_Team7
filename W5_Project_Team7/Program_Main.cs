@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
@@ -120,8 +121,21 @@ namespace W5_Project_Team7
         public static List<V1Event> FindEventBySearchWordAndDate(V1Events events)
         {
             List<V1Event> foundEvents = FindEventByDate(events);
-            Console.WriteLine("Syötä hakusana etsiäksesi tapahtumia: ");
-            string searchInput = Console.ReadLine();
+            string searchInput = "";
+
+            while (true)
+            {
+                Console.WriteLine("Enter search word to find events: ");
+                searchInput = Console.ReadLine();
+                if (searchInput == "")
+                {
+                    Console.WriteLine("Invalid input. Try again. ");
+                }
+                else
+                {
+                    break;
+                }
+            }
 
             List<V1Event> foundSearchEvents = new List<V1Event>();
 
@@ -139,19 +153,22 @@ namespace W5_Project_Team7
                 {
                     foundSearchEvents.Add(helsinkiEvent);
                 }
-
-                foreach (Tag tag in helsinkiEvent.tags)
+                else
                 {
-                    if (tag.name.ToLower().Contains(searchInput.ToLower()))
+                    foreach (Tag tag in helsinkiEvent.tags)
                     {
-                        foundSearchEvents.Add(helsinkiEvent);
+                        if (tag.name.ToLower().Contains(searchInput.ToLower()))
+                        {
+                            foundSearchEvents.Add(helsinkiEvent);
+                            break;
+                        }
                     }
                 }
             }
 
             if (!foundSearchEvents.Any())
             {
-                Console.WriteLine("Ei löytynyt tapahtumia!");
+                Console.WriteLine("No events found!");
             }
             return foundSearchEvents;
         }
@@ -161,13 +178,13 @@ namespace W5_Project_Team7
             {
                 try
                 {
-                    Console.WriteLine("Syötä päivämäärä seuraavassa muodossa: 'YYYY/mm/dd'");
+                    Console.WriteLine("Enter date in the following format: 'YYYY/mm/dd'");
                     DateTime input = DateTime.Parse(Console.ReadLine());
                     return input;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Virheellinen syöte, yritä uudestaan.");
+                    Console.WriteLine("Invalid input. Try again.");
                 }
             }
         }
@@ -184,106 +201,26 @@ namespace W5_Project_Team7
 
         public static void FindActivity(V2Activities activities)
         {
-            Console.WriteLine("So, you want to find something to do!");
-            int priceLimit = int.MaxValue;
             while (true)
             {
-                try
-                {
-                    Console.WriteLine("Enter a price limit in EUR: ('0' for no limit)");
-                    priceLimit = int.Parse(Console.ReadLine());
-                    if (priceLimit == 0)
-                    {
-                        priceLimit = int.MaxValue;
-                    }
-                    break;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Invalid input. Try again.");
-                }
-            }
-
-            Console.WriteLine("Enter a search word to find activities.\nPress enter to enter nothing and see all the activities in your price range. Use English: ");
-            string searchWord = Console.ReadLine();
-
-            List<V2Activity> foundActivities = new List<V2Activity>();
-
-            if (searchWord == string.Empty)
-            {
-                foreach (V2Activity helsinkiActivity in activities.rows)
-                {
-                    if (helsinkiActivity.priceEUR.from < priceLimit)
-                    {
-                        foundActivities.Add(helsinkiActivity);
-                    }
-
-                    if (helsinkiActivity.priceEUR.from is null)
-                    {
-                        foundActivities.Add(helsinkiActivity);
-                    }
-                }
-            }
-            else
-            {
-                foreach (V2Activity helsinkiActivity in activities.rows)
-                {
-                    if (!(helsinkiActivity.descriptions.en is null))
-                    {
-                        if (helsinkiActivity.descriptions.en.name.ToLower().Contains(searchWord.ToLower()) ||
-                            helsinkiActivity.descriptions.en.description.ToLower().Contains(searchWord.ToLower()) ||
-                            helsinkiActivity.tags.Contains(searchWord.ToLower()))
-                        {
-                            if (IsActivityOpenToday(helsinkiActivity))
-                            {
-                                if (helsinkiActivity.priceEUR.from < priceLimit)
-                                {
-                                    foundActivities.Add(helsinkiActivity);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (helsinkiActivity.tags.Contains(searchWord))
-                        {
-                            if (IsActivityOpenToday(helsinkiActivity))
-                            {
-                                if (helsinkiActivity.priceEUR.from < priceLimit)
-                                {
-                                    foundActivities.Add(helsinkiActivity);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (!foundActivities.Any())
-            {
-                Console.WriteLine("No activities found - press any key to continue.");
-                Console.ReadKey(true);
-            }
-            else
-            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                PrintBanner("ACTIVITIES");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("So, you want to find something to do!");
+                Console.WriteLine("\n1 - find all activities\n2 - search for specific activities\n3 - search for activities by price\n4 - search for activities open today\n0 - exit");
+                int inputChoice;
                 while (true)
                 {
-                    Console.Clear();
-                    for (int i = 0; i < foundActivities.Count(); i++)
-                    {
-                        string activityName = foundActivities[i].descriptions.en is null
-                            ? foundActivities[i].descriptions.fi.name
-                            : foundActivities[i].descriptions.en.name;
-                        Console.WriteLine($"ID: {i} Activity name: {activityName}");
-                    }
                     try
                     {
-                        Console.WriteLine("\nWhich activity would you like to know about? Enter ID: ");
-                        int choice = int.Parse(Console.ReadLine());
-                        Console.Clear();
-                        Console.WriteLine(foundActivities[choice]);
-                        Console.WriteLine("\nPress any key to continue.");
-                        Console.ReadKey(true);
+                        inputChoice = int.Parse(Console.ReadLine());
+                        if (inputChoice < 0 || inputChoice > 4)
+                        {
+                            Console.WriteLine("Invalid input. Try again.");
+                            
+                            continue;
+                        }
                         break;
                     }
                     catch (Exception e)
@@ -291,10 +228,127 @@ namespace W5_Project_Team7
                         Console.WriteLine("Invalid input. Try again.");
                     }
                 }
-                
+                if (inputChoice == 1)
+                {
+                    ChooseOneActivity(activities.rows.ToList());
+                }
+                else if (inputChoice == 2)
+                {
+                    string searchWord;
+                    while (true)
+                    {
+                        Console.WriteLine("Enter one search word to find activities. Use English: ");
+                        searchWord = Console.ReadLine();
+                        if (searchWord == "" || searchWord is null || searchWord.Contains(" "))
+                        {
+                            Console.WriteLine("Invalid input. Try again.");
+                            Console.WriteLine("Press any key to continue.");
+                            Console.ReadKey(true);
+                            continue;
+                        }
+                        break;
+                    }
+                    
+                    List<V2Activity> foundActivities = new List<V2Activity>();
+
+                    foreach (V2Activity helsinkiActivity in activities.rows)
+                    {
+                        if (!(helsinkiActivity.descriptions.en is null))
+                        {
+                            if (helsinkiActivity.descriptions.en.name.ToLower().Contains(searchWord.ToLower()) ||
+                                helsinkiActivity.descriptions.en.description.ToLower().Contains(searchWord.ToLower()) ||
+                                helsinkiActivity.tags.Contains(searchWord.ToLower()))
+                            {
+                                foundActivities.Add(helsinkiActivity);
+                            }
+                        }
+                        else
+                        {
+                            foreach (string tag in helsinkiActivity.tags)
+                            {
+                                if (tag.Contains(searchWord))
+                                {
+                                    foundActivities.Add(helsinkiActivity);
+                                }
+                            }
+                        }
+                    }
+                    if (!foundActivities.Any())
+                    {
+                        Console.WriteLine("No activities found - press any key to continue.");
+                        Console.ReadKey(true);
+                    }
+                    else
+                    {
+                        ChooseOneActivity(foundActivities);
+                    }
+                }
+                else if (inputChoice == 3)
+                {
+                    int priceLimit;
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Enter a price limit in EUR: ('0' for no limit)");
+                            priceLimit = int.Parse(Console.ReadLine());
+                            if (priceLimit == 0)
+                            {
+                                priceLimit = int.MaxValue;
+                            }
+                            break;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Invalid input. Try again.");
+                        }
+                    }
+
+                    List<V2Activity> foundActivities = new List<V2Activity>();
+
+                    foreach (V2Activity helsinkiActivity in activities.rows)
+                    {
+                        if (helsinkiActivity.priceEUR.from < priceLimit)
+                        {
+                            foundActivities.Add(helsinkiActivity);
+                        }
+
+                        if (helsinkiActivity.priceEUR.from is null)
+                        {
+                            foundActivities.Add(helsinkiActivity);
+                        }
+                    }
+                    if (!foundActivities.Any())
+                    {
+                        Console.WriteLine("No activities found - press any key to continue.");
+                        Console.ReadKey(true);
+                        continue;
+                    }
+                    ChooseOneActivity(foundActivities);
+                }
+                else if (inputChoice == 4)
+                {
+                    List<V2Activity> foundActivities = new List<V2Activity>();
+                    foreach (V2Activity helsinkiActivity in activities.rows)
+                    {
+                        if (IsActivityOpenToday(helsinkiActivity))
+                        {
+                            foundActivities.Add(helsinkiActivity);
+                        }
+                    }
+                    if (!foundActivities.Any())
+                    {
+                        Console.WriteLine("No activities found - press any key to continue.");
+                        Console.ReadKey(true);
+                        continue;
+                    }
+                    ChooseOneActivity(foundActivities);
+                }
+                else if (inputChoice == 0)
+                {
+                    break;
+                }
             }
-
-
         }
 
         public static bool IsActivityOpenToday(V2Activity helsinkiActivity)
@@ -330,12 +384,53 @@ namespace W5_Project_Team7
                         return false;
                 }
             }
-            else
+            return false;
+        }
+        public static void PrintBanner(string title)
+        {
+            int emptiesLeft = (59 - title.Length) / 2;
+            int emptiesRight = (59 - title.Length) / 2;
+            if (title.Length % 2 != 0)
             {
-                return false;
+                emptiesRight -= 1;
             }
+            Console.WriteLine(new string('*', 60));
+            Console.WriteLine("*" + new string(' ', emptiesLeft) + title + new string(' ', emptiesRight) + "*");
+            Console.WriteLine(new string('*', 60) + "\n");
+        }
 
-            
+        public static void ChooseOneActivity(List<V2Activity> foundActivities)
+        {
+            while (true)
+            {
+                Console.Clear();
+                for (int i = 0; i < foundActivities.Count(); i++)
+                {
+                    string activityName = foundActivities[i].descriptions.en is null
+                        ? foundActivities[i].descriptions.fi.name
+                        : foundActivities[i].descriptions.en.name;
+                    Console.WriteLine($"ID: {i} Activity name: {activityName}");
+                }
+                try
+                {
+                    Console.WriteLine("\nWhich activity would you like to know about? Enter ID: ");
+                    int choice = int.Parse(Console.ReadLine());
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    PrintBanner("ACTIVITY");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine(foundActivities[choice]);
+                    Console.WriteLine("\nPress any key to continue.");
+                    Console.ReadKey(true);
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid input. Try again.");
+                    Console.WriteLine("Press any key to continue.");
+                    Console.ReadKey(true);
+                }
+            }
         }
     }
 }
