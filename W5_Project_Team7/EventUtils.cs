@@ -184,11 +184,15 @@ namespace W5_Project_Team7
                             Console.WriteLine("What event would you like to learn about more? Enter number: ");
                             int choice = int.Parse(Console.ReadLine());
                             Console.WriteLine(FoundEvents[choice]);
+                            Console.WriteLine("Press any key to continue.");
+                            Console.ReadKey(true);
                         }
 
                         else
                         {
                             Console.WriteLine("Please write A or B.");
+                            Console.WriteLine("Press any key to continue.");
+                            Console.ReadKey(true);
                         }
                     }
                 }

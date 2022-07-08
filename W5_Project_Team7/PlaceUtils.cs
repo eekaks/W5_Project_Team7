@@ -208,7 +208,7 @@ namespace W5_Project_Team7
             Console.ReadKey(true);
         }
 
-        //Eetu Laine
+       
         public static bool CheckArea(V2Place helsinkiPlace)
         {
             string[] neighbourhoods = new[]
@@ -219,7 +219,7 @@ namespace W5_Project_Team7
             return neighbourhoods.Contains(helsinkiPlace.location.address.neighbourhood);
         }
 
-        //Tiia Meriranta
+       
         public static async Task PrintNameByLocation()
         {
             string url = "http://open-api.myhelsinki.fi/v2/places/";
